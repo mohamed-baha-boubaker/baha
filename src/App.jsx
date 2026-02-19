@@ -28,16 +28,21 @@ const list =[    //array of objects
     objectID: 2,
   }
 ];
-//list[2].points=list[2].points+1;
-function App() { //component 
+
+function App() {  
   return (
     <div>
-      <h1>My Hacker Stories</h1>
-      <label htmlFor="search">Search: </label>
-      <input id="search" type="text" />
-      <hr />
-      <ul>
-        {list.map(function (item) { //map iterates  
+      <Title/>
+      <Search/>
+      <hr></hr>
+      <List/>
+    </div>
+  );
+}
+function List(){
+  return(
+     <ul>
+        {list.map(function (item) {   
         return(
           <li key={item.objectID}> 
             <span> <a href={item.url}>{item.title}</a> </span>
@@ -48,7 +53,20 @@ function App() { //component
         );
         })}
       </ul>
+  )
+}  
+function Search(){
+  return(
+    <div>
+      <label htmlFor="search">Search: </label>
+      <input id="search" type="text" />
     </div>
-  );
+    
+  )
+}
+function Title(){
+  return(
+    <h1>My Hacker Stories</h1>
+  )
 }
 export default App
